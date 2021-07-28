@@ -22,10 +22,11 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
     - name: Build the Docker image
-      run: docker run -it -d ubuntu:latest
+      run: docker build . --file Dockerfile --tag ubuntu:latest$(date +%s)
+      #run: docker run -it -d ubuntu:latest
       
-    - name: Docker tag
-      run: docker tag ubuntu:latest ${{secrets.DOCKER_USER}}/eks-new
+    #- name: Docker tag
+      #run: docker tag ubuntu:latest ${{secrets.DOCKER_USER}}/eks-new
    
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/eks-new:latest
