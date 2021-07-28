@@ -24,6 +24,9 @@ jobs:
     - name: Build the Docker image
       run: docker run -it -d ubuntu:latest
       
+    - name: Docker tag
+      run: docker tag ubuntu:latest ${{secrets.DOCKER_USER}}/eks-new
+   
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/eks-new:latest
       
