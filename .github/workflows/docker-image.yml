@@ -25,5 +25,5 @@ jobs:
       run: docker run -it -d ubuntu:latest
       
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/kubernetes-01
+      run: docker push ${{secrets.DOCKER_USER}}/eks-new:latest
       
